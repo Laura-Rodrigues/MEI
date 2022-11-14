@@ -1,0 +1,79 @@
+sig Node {
+	children : set Node
+}
+sig Leaf extends Node {}
+one sig Root in Node {}
+
+sig Red, Black in Node {}
+
+pred Invs {
+	// Specify the properties that characterize 
+    // red-black binary trees inside this predicate.
+
+	// The number of points you will get is proportional to the number of correct properties.
+	// To check how many points you have so far you can use the different commands. 
+    // The maximum is 5 points.
+  
+	// Be careful to not overspecify! 
+	// If some of your properties are not valid in a red-black tree you get 0 points, 
+    // even if you have some correct properties.
+	// To check if you are not overspecifying you can use command NoOverspecification. 
+	// If you are overspecifying this command will return a tree that should be possible 
+	// but that you spec is not accepting.
+
+ 
+  
+// CHECK ONE  
+	//leaf can´t have children
+  	all x : Leaf | all y : Node | y not in x.children
+
+// CHECK ONE 
+  	// all nodes can have maximum one parent node
+  	all x : Node | lone children.x
+  
+// CHECK ONE   
+  	// root can´t have parent
+  	all x : Root | no children.x
+  
+  // Only roots don't have parent
+  	all x : (Node - Root) | some children.x
+  
+  
+  
+// CHECK TWO   	
+  	// All leaf and root nodes are black. 
+  	all x : Leaf | x in Black && x not in Red
+  	all x : Root | x in Black && x not in Red
+  	
+// CHECK TWO 
+    // There are no two adjacent red nodes (A red node cannot have a red parent or red child).
+  	all x : Red | all y : Red | y not in x.children 
+  
+  
+  
+  
+// CHECK THREE
+   // Every node is either red or black.
+  	all x : Node | (x in Red => x not in Black) && (x in Black => x not in Red)
+  
+  	// Every Node needs to have a color
+  	all x : Node | x in Red or x in Black
+  
+  
+  
+// CHECK FOUR  
+	//node can´t have itself as children
+  	all x : Node | x not in x.children 
+  
+	// All the descendents from the tree can´t their parents' parent
+  	all x : Node | x not in x.^children
+  
+  	// Every node except the leafs needs to have 2 children
+  	all x : (Node - Leaf) | #(x.children) = 2
+    
+  
+// CHECK FIVE
+   // Every path from a node (including root) to any of its descendants NULL nodes has the same number of black nodes. 	
+  all x: Leaf | all y: Leaf | #(^children.x & Black) = #(^children.y & Black)
+  
+}
