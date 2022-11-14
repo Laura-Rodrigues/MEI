@@ -1,0 +1,83 @@
+Exercício 1
+
+Inicialmente a variável w era partilhada por todas as threads. 
+Como todas vão incrementar o valor de w.
+
+criou 2 filhos de execução e dividiu o core. a thread 0 vai de 0 a 49 e a T1 vai 
+de 50 a 99.
+O w começa a 0 e é partilhado pelas duas threads. Pode não chegar aos 110.
+
+
+
+1.1 private (w)
+
+Cada thread tem uma variável w privada, que não será partilhada entre elas e é 
+inicializada a 0. 
+w externo não é alterado, ou seja, é 10
+
+
+int main() {
+        int w=10;
+#pragma omp parallel private (w)
+#pragma omp for
+        for(int i=0;i<100;i++) {
+                int id = omp_get_thread_num();
+                printf("T%d:i%d w=%d\n", id, i, w++);
+        }
+        printf("w=%d\n", w);
+}
+
+
+1.2 firstprivate(w)
+
+Os w privados são inicializados com o valor do w externo, ou seja, a 10. E 
+portanto quando o programa termina o valor do w externo mantem-se e os privados 
+ficam 10+50 = 60 (59 porque vai de 0..49)
+
+
+int main() {
+        int w=10;
+#pragma omp parallel firstprivate (w)
+#pragma omp for
+        for(int i=0;i<100;i++) {
+                int id = omp_get_thread_num();
+                printf("T%d:i%d w=%d\n", id, i, w++);
+        }
+        printf("w=%d\n", w);
+}
+
+
+1.3 lastprivate(w)
+
+w privados começam a 0 e acabam em 50. O w externo começa a 10 e é substituído pelo valor da última thread, ou seja, 50.
+
+
+int main() {
+        int w=10;
+#pragma omp parallel
+#pragma omp for lastprivate (w)
+        for(int i=0;i<100;i++) {
+                int id = omp_get_thread_num();
+                printf("T%d:i%d w=%d\n", id, i, w++);
+        }
+        printf("w=%d\n", w);
+}
+
+
+
+1.4 reduction
+
+w externo começa a 10 e é substituído pela soma dos w privados finais, ou seja, 
+w = w0 + w1 = 110. Os w privados começam em 0 e acabam em 50.
+
+
+int main() {
+        int w=10;
+#pragma omp parallel reduction (+:w)
+#pragma omp for
+        for(int i=0;i<100;i++) {
+                int id = omp_get_thread_num();
+                printf("T%d:i%d w=%d\n", id, i, w++);
+        }
+        printf("w=%d\n", w);
+}

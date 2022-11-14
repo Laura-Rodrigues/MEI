@@ -1,0 +1,118 @@
+Exercicio1:
+
+a)
+antes de correr com java: 
+    module load java/17.0.2 
+
+compilar programa:
+    srun --partition=cpar javac MULT.java
+
+run programa:
+    srun --partition=cpar java -XX:+PrintCompilation MULT
+
+
+
+(...)
+    101   57 %     3       MULT::init @ 17 (57 bytes)
+    102   58       3       MULT::init (57 bytes)
+    105   59 %     4       MULT::init @ 17 (57 bytes)
+    116   57 %     3       MULT::init @ 17 (57 bytes)   made not entrant
+    126   59 %     4       MULT::init @ 17 (57 bytes)   made not entrant
+    132   60 %     3       MULT::mmult @ 24 (73 bytes)
+    133   61       3       MULT::mmult (73 bytes)
+    133   62 %     4       MULT::mmult @ 24 (73 bytes)
+    142   60 %     3       MULT::mmult @ 24 (73 bytes)   made not entrant
+    143   62 %     4       MULT::mmult @ 24 (73 bytes)   made not entrant
+    153   63 %     3       MULT::mmult @ 24 (73 bytes)
+    153   64 %     4       MULT::mmult @ 24 (73 bytes)
+    164   63 %     3       MULT::mmult @ 24 (73 bytes)   made not entrant
+    494   65       3       java.lang.String::isEmpty (14 bytes)
+    495   66       3       jdk.internal.math.FDBigInteger::mult (64 bytes)
+    495   67       3       jdk.internal.math.FDBigInteger::<init> (30 bytes)
+    495   68       3       jdk.internal.math.FDBigInteger::makeImmutable (6 bytes)
+    496   69       3       jdk.internal.math.FDBigInteger::mult (44 bytes)
+130.54688637152677
+
+How many times was mmult compiled? Why?
+    8 vezes porque estava a tentar otimizar versões. A operação alloc não 
+    foi compilada por ser a mais leve.
+
+
+b) 
+perfreport.txt: (instruções mais relevantes)
+
+    15.40%  java     perf-10747.map      [.] 0x00007f194912fa90
+    14.82%  java     [unknown]           [k] 0xffffffffa159608e
+    12.85%  java     perf-10747.map      [.] 0x00007f194912fad9
+     8.90%  java     perf-10747.map      [.] 0x00007f194912faa3
+     5.16%  java     perf-10747.map      [.] 0x00007f194912fae4
+     3.54%  java     perf-10747.map      [.] 0x00007f194912fab3
+     2.66%  java     perf-10747.map      [.] 0x00007f194912fab7
+(...)
+
+A op que mais consome é a primeira que corresponde ao ciclo mais interno da 
+função de multiplicação. Este bocado de código corresponde em assembly às linhas 
+entre os dois endereços 0x00007f194912fa90:
+
+  0x00007f194912fa90: mov    0x10(%rdi,%rcx,4),%eax  ;*aaload
+                                                ; - MULT::mmult@48 (line 29)
+
+  0x00007f194912fa94: mov    0xc(%r12,%rax,8),%ebx  ; implicit exception: dispatches to 0x00007f194912fcfd
+  0x00007f194912fa99: vmovsd 0x10(%rsi,%rcx,8),%xmm1  ;*daload
+                                                ; - MULT::mmult@43 (line 29)
+
+  0x00007f194912fa9f: lea    (%r12,%rax,8),%rdx  ;*aaload
+                                                ; - MULT::mmult@48 (line 29)
+
+  0x00007f194912faa3: cmp    %ebx,%r13d
+  0x00007f194912faa6: jae    0x00007f194912fb4d  ;*daload
+                                                ; - MULT::mmult@50 (line 29)
+
+  0x00007f194912faac: vmulsd 0x10(%rdx,%r13,8),%xmm1,%xmm1
+  0x00007f194912fab3: vaddsd %xmm0,%xmm1,%xmm0  ;*dadd
+                                                ; - MULT::mmult@52 (line 29)
+
+  0x00007f194912fab7: vmovsd %xmm0,0x10(%r9,%r13,8)  ;*dastore
+                                                ; - MULT::mmult@53 (line 29)
+
+  0x00007f194912fabe: movslq %ecx,%rdx
+  0x00007f194912fac1: mov    0x14(%rdi,%rdx,4),%eax  ;*aaload
+                                                ; - MULT::mmult@48 (line 29)
+
+  0x00007f194912fac5: mov    0xc(%r12,%rax,8),%ebx  ; implicit exception: dispatches to 0x00007f194912fcfd
+  0x00007f194912faca: vmovsd 0x18(%rsi,%rdx,8),%xmm1  ;*daload
+                                                ; - MULT::mmult@43 (line 29)
+
+  0x00007f194912fad0: lea    (%r12,%rax,8),%rdx  ;*aaload
+                                                ; - MULT::mmult@48 (line 29)
+
+  0x00007f194912fad4: cmp    %ebx,%r13d
+  0x00007f194912fad7: jae    0x00007f194912fb4b  ;*daload
+                                                ; - MULT::mmult@50 (line 29)
+
+  0x00007f194912fad9: vmulsd 0x10(%rdx,%r13,8),%xmm1,%xmm1
+  0x00007f194912fae0: vaddsd %xmm0,%xmm1,%xmm0  ;*dadd
+                                                ; - MULT::mmult@52 (line 29)
+
+  0x00007f194912fae4: vmovsd %xmm0,0x10(%r9,%r13,8)  ;*dastore
+                                                ; - MULT::mmult@53 (line 29)
+
+  0x00007f194912faeb: add    $0x2,%ecx          ;*iinc
+                                                ; - MULT::mmult@54 (line 28)
+
+  0x00007f194912faee: cmp    %r8d,%ecx
+  0x00007f194912faf1: jl     0x00007f194912fa90  ;*if_icmpge
+                                                ; - MULT::mmult@26 (line 28)
+
+
+
+c) 58 instruções perf-10747.map    -> Java
+
+
+d) Analisando o ficheiro perfreport2.txt vemos que paralelas às operações 
+java estão a ser executadas operações de otimização que são as CompilerTread. 
+Para cada uma destas existe um overhead que afeta negativamente a performance.
+
+Comparando a C, ...
+
+e)

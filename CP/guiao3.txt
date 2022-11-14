@@ -1,0 +1,34 @@
+Exercicio2:
+
+a) Existe dependência de memória uma vez que o valor da operação entre A e B 
+está sempre a ser guardado no mesmo C dentro de cada ciclo
+    A outra limitação é a localidade espacial, visto que os dados de B não 
+estão guardados consecutivamente
+
+
+b) C[i][j] += A[i][k] * B[k][j] 
+
+Ordem dos loops:
+i j k 
+j i k -- não pode ser por causa da dependencia de C
+
+j k i
+k j i -- vai avançar em função de i ou seja, em C e A avançamos por coluna
+        a ordem de acesso aos elementos no ciclo mais interior vai ser sempre 
+        a mesma
+
+i k j
+k i j -- vai andar sobre a linha em C e B beneficiando a vetorização. Sendo A 
+        uma constante que não afeta a nível de dependências 
+
+c)   sudo perf stat -e L1-dcache-load-misses -M cpi ./a.out
+
+N       Version         Time    CPI         #I          L1_DMiss        Miss/#I
+                                   (inst_retired.any) 
+512     ikj()           0.17    0.4        
+        ikj_unroll2()   0.13    0.4
+        ikj_vect()      0.08    0.3
+
+
+exercicio3
+a) 2,5BHz * 256/64

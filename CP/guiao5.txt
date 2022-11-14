@@ -1,0 +1,128 @@
+OpenMP 
+
+Começa com um fio de execução. Usando o pragma podemos criar mais do que um fio de execução.
+
+Exercício 1:
+
+a)
+    O output é sempre diferente. Como as duas threads estão a correr em 
+    paralelo, não é fixa a prioridade dada pelo sistema.
+
+    Quando usamos a diretiva pragme estamos a usar duas threads que irao 
+    executar o codigo que a sucede em paralelo, ou seja, o ciclo for da função 
+    irá ser executado pelas diferentes threads ao mm tempo. cada uma destas 
+    threads irá executar a sua versão do ciclo for. Podemos ver que para cada 
+    thread as iterações encontram-se ORDENADAS. Contudo a ordem pela qual os 
+    prints são apresentados não é certa, tanto podemos ver primeiro  print da 
+    t0 como da t1.
+
+    Como as duas threads estão a correr em paralelo , ambas quererão fazer print dos seus resultados e o sistema poderá servir apenas uma de cada vez, dado que este não tem capacidade para servir os dois ao mesmo tempo.
+
+    c) são feitas 2 execuções por cada thread em paralelo
+
+exercicio 2:
+2.1:
+    Ao adicionar a diretiva #pragma omp for metade das execuçoes do ciclo for 
+    serão eecutadas pela thread 0 e a outra metade pela 1 ISto é devido ao 
+    default da diretiva for ser static. Assim, teremos a execução paralelizada 
+    dp ciclo for. Serão executadas apenas 100 iterações pelas duas 2 threads. 
+    Não é obrigatória que uma thread comece apenas quando a outra terminar.
+
+2.2
+    Ao adicionar a diretiva #pragma omp master o bocado de código que é 
+    paralelizado será apenas executado pela thread master (tipicamente a zero). 
+    Serão feitas apenas 100 execuções do ciclo, mas apenas pela thread master.
+
+2.3
+    No caso da diretiva #pragma omp single o bocado de código que se segue à 
+    diretiva será apenas executado por uma das threads criadas, não precisa de 
+    ser necessariamente a thread master. Serão apenas executadas 100 iterações 
+    por apenas uma das threads.
+
+b) 
+    No caso da diretiva # for como o schedule default é static, a distribuição 
+    das 100 iterações do loop será feita 50/50, isto é, a distribuição é feita 
+    antes da execução do ciclo, e cada thread é responsável por executar metade 
+    das iterações necessárias.
+    Com o # master apenas a thread master irá executar a totalidade das i
+    terações, portanto a T0 irá 100 it e a T1 não fará nenhuma.
+    Com # single uma das threads fará todas as iterações e a outra não 
+    executará nenhuma. A thread que irá trabalhar poderá ser a 0 ou a 1.
+
+
+2.4
+    Quando definimos uma parte do código como critical definimos que apenas 
+    uma thread poderá entrar nessa parte do código, isto é, enquanto a thread 
+    que se encontra a executar esse bocado do código não terminar, nenhuma 
+    outra thread poderá executar essa parte do código. AKA: funciona como lock 
+    e unlock: lock no inicio de critical e unlock no fim.
+        -> cada thread fará 100 it, mas mal uma comece a outra terá que esperar 
+        que esta termine. A thread que começa primeiro pode variar.
+
+Exercício 3:
+
+3.1
+
+a) 
+    Com a utilização do diretiva #pragma omp barrier, o código será mais uma
+    vez executado pelas threads em paralelo. Contudo, quando uma thread a 
+    alcançar terá de esperar pelas restantes threads para progredir. Ao 
+    colocarmos esta diretiva, garantimos que teremos a apresentação das 
+    iterações com o mm número mas que serão executadas pelas diferentes 
+    threads apresentadas uma a seguir à outra.
+
+    T_: i0
+    T_: i0
+    T_: i1
+    T_: i1
+    ...
+
+    Contudo não é garantido que a primeira thread conclua antes da segunda.
+
+3.2
+
+b) 
+    O código será executado como se fosse sequencial?
+
+exercicio 4:
+
+schedule(static)
+    A divisão é feita pelo numero de threads antes do inicio do ciclo, portanto,
+    neste caso dividimos 100 por 2 e atribuimos 50 it a cada thread
+
+    ordem das threads no output pode variar, mas estas irao apenas executar as 
+    threads que lhe foram atribuidas inicialmente.
+
+schedule(static, 10)
+    Antes da exec das it, atribuimos diferentes blocos de threads a cada uma das 
+    threads, iterativamente, até que todos os pacotes sejam atribuidos. Assim, T0 
+    fica com 10; damos 10 a T1; depois mais 10 a T0; mais 10 a T1 e assim 
+    sucessivamente até que todas as iterações tenham sido atribuidas e só depois 
+    começamos a exec do código.
+
+schedule(dynamic)
+    Durante a exec do ciclo, vamos dando uma it a uma thread que se encontre 
+    disponível e de seguida a outra thread  que se encontre disponível. Mal uma 
+    thread termine a sua it , esta irá pedir outra que lhe será atribuida. O tempo 
+    que cada thread demora a exec não é sempre igual e portanto podemos ter a 
+    thread 0 a exec duas it de forma seguida.
+
+schedule(dynamic, 10)
+    Semelhante à anterior, contudo são atribuidas 10 threads de cada vez, em vez 
+    de 1.
+
+schedule(guided)
+    Neste caso, dividimos o numero total de it pelo numero de threads disponíveis 
+    e à medida que chegam novas threads a edir iterações para executar iremos 
+    calcular o numero de it que lhe iremos atribuir. Assim, num exemplo pratico:
+    
+    100/2=50 : primeira thread irá exec 50 it
+    (100-50)/2 = 25 : segunda irá exec 25 it
+    (50-25)/2 = 13 : proxima thread disponivel ira exec 13 it 
+    E assim sucessivamente
+    
+    Semelhante à dinamica a ordem das threads que exec iteraçoes pode nao ser 
+    seguida, o numero de it atribuidas varia conforme a primeira thread que 
+    termina a sua exec anteriormente atribuida.
+
+

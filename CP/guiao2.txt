@@ -1,0 +1,83 @@
+exercicio1
+
+a) Aik tem localidade espacial uma vez que todos os valores serão guardados seguidos em memória.
+    Em c os valores de arrays são guardados seguidos
+    
+
+  Bkj não tem localidade espacial:
+    para cada multiplicação feita acede-se à memória de forma a carregar o valor
+    
+  Cij tem localidade espacial garantida porque os valores são sempre guardados 
+  no mesmo espaço de memória.
+
+b) um miss ocorre quando tenho que ir à memória principal para ter acesso aos valores, ou seja, 
+quando estes não estão seguidos por não haver localidade espacial.
+
+
+
+void mmult() {
+    for(int i=0; i<size; i++) {
+        for(int j=0; j<size; j++) {
+            C[i*size+j] = 0;
+            for(int k=0; k<size; k++) {
+                C[i*size+j] += A[i*size+k] * B[k*size+j];
+            }
+        }
+    }
+}
+
+!! Um double são 8 bits. A máquina tem 64bits e logo uma linha de cache são 64 bits. 
+Dividindo 64 por 8 temos 8 doubles que são os 8 valores lidos da memória e 
+guardados em cache.
+
+
+    Em B, como não há localidade espacial, por cada ciclo vamos ter que aceder N vezes à memória.
+    Na linha mais interior terá um miss a cada iteração.
+    Temos N*N*N = N^3 misses 
+
+    Em C acedemos à memória no segundo ciclo (ir buscar o valor) ou seja temos N*N = N^2 misses. 
+    Como tem localidade espacial temos 8 doubles (valores de C) em cache, e como carregamos
+    o valor de C N^2 vezes e como já temos 8 valores em cache teremos N^2 / 8 misses.
+
+    O valor do array A é alterado N^3 vezes por estar dentro dos 3 ciclos. Sabendo que temos 
+    localidade espacial, e portanto à semelhança de C temos 8 valores carregados em cache 
+    teremos N^3 / 8 misses.
+
+    N^3 + N^3 / 8 + N^2 / 8 
+
+    misses per instruction:
+        -O2 e 512: #I - 1.07*10^9 (ou 512^3 * 8)
+
+     (1.07*10^9)^3 + (1.07*10^9)^3 / 8 + (1.07*10^9)^2 / 8 
+
+c) D - transposta de B 
+    foreach line of A
+        foreach line of D
+            C_(line,column) = DOT_(line of A, line of D)
+
+    N^3 / 8 + N^3 / 8 + N^2 / 8 
+
+d)
+base:   time            - 0.5
+        CPI             - 1.1
+        #I              - 1112675579 
+        L1_DMiss_est    - 134217728
+        LI_DMiss        - 142678846
+        Miss/#I         - 0.13
+
+(mudar os indices de B(k*size+j))
+
+transp: time            - 0.19
+        CPI             - 0.4
+        #I              - 977618798
+        L1_DMiss_est    - 33816576
+        LI_DMiss        - 17152371
+        Miss/#I         - 0.03
+
+        Houve uma grande diferençã entre a estimativa e a realidade de misses 
+        da transposta. Se conseguirmos alocar a totalidade de A na cache o 
+        numero de misses fica bastante reduzido e a estimativa não teve isso em conta.
+
+Exercicio2:
+
+a) 
