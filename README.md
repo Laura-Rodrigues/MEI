@@ -3,5 +3,5 @@
 # TODO
 
 ## MFES:
-- [] Adicionar exercício Task resolvido
-- [] Adicionar TP3
+- [ ] Adicionar exercício Task resolvido
+- [ ] Adicionar TP3
