@@ -1,7 +1,7 @@
 # MEI
 
-TO-DO:
+# TODO
 
-MFES:
-[] Adicionar exercício Task resolvido
-[] Adicionar TP3
+## MFES:
+- [] Adicionar exercício Task resolvido
+- [] Adicionar TP3
