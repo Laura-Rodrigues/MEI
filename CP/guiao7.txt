@@ -1,0 +1,246 @@
+gcc -O2 -fopenmp -g -fno-omit-frame-pointer exe1.c
+
+exercise 1:
+
+a)
+Critical:
+
+        #include<omp.h>
+        #include<stdio.h>
+
+        double f( double a ) {
+            return (4.0 / (1.0 + a*a));
+        }
+        //pi = 3.141592653589793238462643;
+        int main() {
+            double mypi = 0;
+            int n = 10000000; // number of points to compute
+            float h = 1.0 / n;
+            #pragma omp parallel for // reduction(+:mypi)
+            for(int i=0; i<n; i++) {
+        	    double aux= f(i*h);
+        	    #pragma omp critical
+        //      #pragma omp atomic
+                mypi += aux;
+            }
+            mypi = mypi * h;
+            printf(" pi = %.10f \n", mypi);
+        }
+
+
+2 Threads:  sbatch --partition=cpar --cpus-per-task=2 time.sh
+
+ pi = 3.1415927770 
+
+real	0m0.244s
+user	0m0.482s
+sys	    0m0.001s
+
+4 Threads:  sbatch --partition=cpar --cpus-per-task=4 time.sh
+
+ pi = 3.1415927770 
+
+real	0m0.571s
+user	0m2.260s
+sys	    0m0.002s
+
+8 Threads:  sbatch --partition=cpar --cpus-per-task=8 time.sh
+
+ pi = 3.1415927770 
+
+real	0m0.744s
+user	0m4.542s
+sys	    0m0.005s
+
+
+Atomic:
+
+        #include<omp.h>
+        #include<stdio.h>
+
+        double f( double a ) {
+            return (4.0 / (1.0 + a*a));
+        }
+        //pi = 3.141592653589793238462643;
+        int main() {
+            double mypi = 0;
+            int n = 10000000; // number of points to compute
+            float h = 1.0 / n;
+            #pragma omp parallel for // reduction(+:mypi)
+            for(int i=0; i<n; i++) {
+        	    double aux= f(i*h);
+            //	#pragma omp critical
+                #pragma omp atomic
+                mypi += aux;
+            }
+            mypi = mypi * h;
+            printf(" pi = %.10f \n", mypi);
+        }
+
+
+2 Threads:  
+
+ pi = 3.1415927770 
+
+real	0m0.181s
+user	0m0.355s
+sys	    0m0.002s
+
+
+4 Threads:  
+
+ pi = 3.1415927770 
+
+real	0m0.822s
+user	0m2.382s
+sys	    0m0.003s
+
+8 Threads:  
+
+ pi = 3.1415927770 
+
+real	0m1.115s
+user	0m6.860s
+sys 	0m0.001s
+
+
+Reduction: 
+
+        #include<omp.h>
+        #include<stdio.h>
+
+        double f( double a ) {
+            return (4.0 / (1.0 + a*a));
+        }
+        //pi = 3.141592653589793238462643;
+        int main() {
+            double mypi = 0;
+            int n = 10000000; // number of points to compute
+            float h = 1.0 / n;
+            #pragma omp parallel for reduction(+:mypi)
+            for(int i=0; i<n; i++) {
+        	    double aux= f(i*h);
+            //	#pragma omp critical
+            //  #pragma omp atomic
+                mypi += aux;
+            }
+            mypi = mypi * h;
+            printf(" pi = %.10f \n", mypi);
+        }
+
+
+2 Threads:  
+
+ pi = 3.1415927770 
+
+real	0m0.049s
+user	0m0.095s
+sys	    0m0.000s
+
+4 Threads:  
+
+ pi = 3.1415927770 
+
+real	0m0.031s
+user	0m0.083s
+sys	    0m0.001s
+
+
+8 Threads:  
+
+ pi = 3.1415927770 
+
+real	0m0.020s
+user	0m0.099s
+sys	    0m0.000s
+
+
+O melhor é o reduction por ter a melhor evolução de tempos no parâmetro real.
+
+
+
+b)
+
+gomp_mutex_lock_slow é a operação mais pesada mas esta faz parte do critical (é um lock)
+
+2 Threads:
+
+19.18%   GOMP_critical_start
+17.08%   GOMP_critical_end
+2.51%    GOMP_critical_start@plt
+1.40%    GOMP_critical_end@plt
+
+
+4 Threads:
+
+13.79%   GOMP_critical_end
+10.12%   GOMP_critical_start
+0.09%    GOMP_critical_end@plt
+0.06%    GOMP_critical_start@plt
+
+
+8 Threads:
+
+8.23%     GOMP_critical_end
+5.15%     GOMP_critical_start
+0.04%     GOMP_critical_start@plt
+0.04%     GOMP_critical_end@plt
+
+
+Exercicio 2:
+
+a)
+$ make
+$ sbatch --partition=cpar run.sh 
+
+
+done!
+Total of 100000 elements!
+
+Setting up PAPI...done!
+This system has 11 available counters.
+
+Initializing Vector...done!
+
+Wall clock time: 0.012365 secs
+
+Wall clock time run 2: 3.351838 secs
+PAPI_TOT_CYC = 31669913
+PAPI_TOT_INS = 28291416
+CPI = 1.12
+Vector is sort...Valid result.
+That's all, folks
+
+
+
+run2 has more time because the array order and is the bad case of quicksort.
+
+b)
+void quickSort(float* arr, int size) {
+
+	int i = 0, j = size;
+  	/* PARTITION PART */
+        partition(arr, &i, &j);
+
+
+	if (0 < j){ 
+#pragma omp single
+#pragma omp task
+        	quickSort_internal(arr, 0, j);
+    	}
+
+	if (i< size){
+#pragma omp task
+        	quickSort_internal(arr, i, size);
+	}
+}
+
+
+c)
+sequential : 2048
+    Texec: 2048 * log_2(2048)= 2048 * 11
+
+Paralelo: 2048
+    Texec: N + 1024 * log_2(1024) = 2048 + 1024 * 10 = 1024 * 12 = 2048 * 6
+
+    2048 * 11 / 2048 * 6 = 1.83
