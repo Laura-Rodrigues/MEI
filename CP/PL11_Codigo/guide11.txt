@@ -1,0 +1,43 @@
+Matéria:
+
+Memória global é a memória principal -> + lenta
+Memória partilhada (cache) -> + rápida
+
+Exercício 1:
+
+
+[pg50542@search7edu2 PL10_Codigo]$ cat slurm-252756.out 
+
+Sequential CPU execution: 382 microseconds
+
+==16216== NVPROF is profiling process 16216, command: ./bin/stencil
+==16216== Warning: Profiling results might be incorrect with current version of nvcc compiler used to compile cuda app. Compile with nvcc compiler 9.0 or later version to get correct profiling results. Ignore this warning if code is already compiled with the recommended nvcc version 
+
+Basic profiling: 0.126688 ms have elapsed for the kernel execution
+
+==16216== Profiling application: ./bin/stencil
+==16216== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   46.43%  23.488us         1  23.488us  23.488us  23.488us  [CUDA memcpy HtoD]
+                   39.60%  20.032us         1  20.032us  20.032us  20.032us  [CUDA memcpy DtoH]
+                   13.98%  7.0720us         1  7.0720us  7.0720us  7.0720us  stencilKernel(float*, float*)
+      API calls:   99.38%  155.55ms         2  77.773ms  4.5380us  155.54ms  cudaMalloc
+                    0.13%  205.73us         1  205.73us  205.73us  205.73us  cuDeviceTotalMem
+                    0.13%  204.99us         2  102.49us  77.265us  127.72us  cudaMemcpy
+                    0.12%  195.41us       101  1.9340us     151ns  74.770us  cuDeviceGetAttribute
+                    0.08%  131.25us         2  65.623us  15.033us  116.21us  cudaFree
+                    0.07%  117.22us         1  117.22us  117.22us  117.22us  cudaLaunchKernel
+                    0.04%  64.040us         1  64.040us  64.040us  64.040us  cuDeviceGetName
+                    0.01%  13.159us         2  6.5790us  4.6740us  8.4850us  cudaEventRecord
+                    0.01%  10.022us         1  10.022us  10.022us  10.022us  cuDeviceGetPCIBusId
+                    0.01%  8.5560us         2  4.2780us  1.0160us  7.5400us  cudaEventCreate
+                    0.00%  6.1210us         1  6.1210us  6.1210us  6.1210us  cudaEventElapsedTime
+                    0.00%  5.3570us         1  5.3570us  5.3570us  5.3570us  cudaEventSynchronize
+                    0.00%  3.4540us         5     690ns     229ns  2.0680us  cudaGetLastError
+                    0.00%  1.6620us         3     554ns     230ns     906ns  cuDeviceGetCount
+                    0.00%     832ns         2     416ns     237ns     595ns  cuDeviceGet
+                    0.00%     399ns         1     399ns     399ns     399ns  cuDeviceGetUuid
+
+
+Exercício 2:
+
