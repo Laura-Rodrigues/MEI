@@ -1,0 +1,115 @@
+(* Specification and implementation of a labeling system, with 
+   items mapped to sets of labels.
+   Uses a record type mith a mutable field, 
+   and applicative types for finite sets and maps.
+   1. Write the specification and implementation of function detach, 
+      that removes the association of a label to an item
+   2. Write the specification and implementation of function clear, 
+      that removes an item entirely from the system
+   3. Verify all functions, including the different execution
+      scenarios provided in the module. For scenario3 one of
+      the generated conditions should fail. 
+   4. It is possible, but undesirable, to have an empty set 
+      of labels associated to an item. Modify the detach function 
+      so that it removes items from the map whenever their sets 
+      of labels become empty.  
+   5. Now add the "no empty label sets" property as a type invariant,
+      and re-verify all functions. 
+*)
+ 
+
+module Label
+
+  type item 
+  type llabel 
+
+  clone set.SetApp with type elt = llabel
+  clone fmap.MapApp with type key = item 
+
+  type labelst = { mutable labels : t set }
+    invariant { forall i :item. mem i labels -> find i labels <> SetApp.empty }
+    by { labels = create() }
+
+  val state : labelst
+
+
+
+  let affix (i :item) (l :llabel) 
+    ensures { mem i state.labels /\ SetApp.mem l (find i state.labels) } 
+    ensures { forall i' :item, l' :llabel. mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels)) -> 
+                                           mem i' state.labels /\ SetApp.mem l' (find i' state.labels)  }
+    ensures { forall i' :item, l' :llabel. mem i' state.labels /\ SetApp.mem l' (find i' state.labels) ->
+                                           (i' = i /\ l' = l) \/ 
+                                           (mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels))) }
+    writes  { state.labels }
+
+ = let oldlbls = if mem i state.labels then find i state.labels
+                  else empty()
+  		  in
+   let lbls = SetApp.add l oldlbls in
+   state.labels <- add i lbls state.labels
+
+
+
+
+  let detach (i :item) (l :llabel)
+    requires { mem i state.labels /\ SetApp.mem l (find i state.labels) }
+    ensures  { mem i state.labels -> not (SetApp.mem l (find i state.labels)) }
+    ensures  { forall i' :item, l' :llabel. mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels)) -> 
+                                            (i' = i /\ l' = l) \/ 
+                                            mem i' state.labels /\ SetApp.mem l' (find i' state.labels)  }
+    ensures  { forall i' :item, l' :llabel. mem i' state.labels /\ SetApp.mem l' (find i' state.labels) ->
+                                            (mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels))) }
+    writes   { state.labels }
+					    
+  = let oldlblsi = find i state.labels in
+    let lblsi = SetApp.remove l oldlblsi in
+    if lblsi == empty()
+      then state.labels <- remove i state.labels 
+      else state.labels <- add i lblsi state.labels
+
+
+
+
+  let clear (i :item) 
+    ensures  { not (mem i state.labels) }
+    writes   { state.labels }
+					    
+  = if (mem i state.labels) then state.labels <- remove i state.labels
+
+
+
+
+  val i :item
+  val l1 :llabel
+  val l2 :llabel
+
+  let scenario1 ()
+  = affix i l1; detach i l1; affix i l1; clear i 
+
+  let scenario2 () 
+  = affix i l1; affix i l2; clear i
+
+  (* error *)
+  let scenario3 ()
+  = affix i l1; detach i l2; affix i l1; clear i 
+
+  let scenario4 () : set
+    ensures { SetApp.mem l1 result }
+    ensures { SetApp.mem l2 result }
+  = affix i l1; affix i l2; find i state.labels
+
+  let scenario5 () : set
+    requires { l1 <> l2 }
+    ensures  { not (SetApp.mem l1 result) }
+    ensures  { SetApp.mem l2 result }
+  = affix i l1; affix i l2; detach i l1; find i state.labels
+
+
+
+
+end
+
+
+
+

@@ -1,0 +1,95 @@
+
+
+module FunctExerc
+
+  use int.Int
+  use list.List
+  use list.Length
+  use list.Mem
+  use list.NthNoOpt
+
+  type a
+  type b
+
+
+  let rec function map (f :a -> b) (l :list a) : list b
+    ensures { forall i :int. 0<=i<length l -> nth i result = f (nth i l) }
+    ensures { length result = length l }
+  =
+  match l with
+  | Nil -> Nil
+  | Cons h t -> Cons (f h) (map f t)
+  end
+
+
+  let rec function filter (p :a -> bool) (l :list a) : list a
+    ensures { forall x :a. mem x result <-> mem x l /\ p x }
+  =
+  match l with
+  | Nil -> Nil
+  | Cons h t -> if (p h) then Cons h (filter p t)
+    	      	else filter p t
+  end
+
+end
+
+
+
+module Foldr
+
+  use int.Int
+  use list.List
+  use list.Permut
+  use list.SortedInt
+  use list.Sum
+
+  let rec function foldr (f :'a -> 'b -> 'b) (z :'b) (l :list 'a) : 'b
+  = 
+  match l with
+  | Nil -> z
+  | Cons h t -> f h (foldr f z t)
+  end
+
+
+  (* One possible way to use foldr: in specs 
+   *)
+  let rec function sumList (l :list int) : int
+    ensures { result = foldr (+) 0 l }
+  =
+  match l with
+  | Nil -> 0
+  | Cons h t -> h + sumList t
+  end
+  
+
+  (* Another way: to program. In this case we reason with lemma functions
+   *)
+  val function insert (i: int) (l: list int) : list int
+    ensures { sorted l -> sorted result } 
+    ensures { permut result (Cons i l) } 
+
+  let function iSort (l :list int) : list int
+  = foldr insert Nil l 
+ 
+  let rec lemma iSort_sorts (l :list int) 
+    ensures { sorted (iSort l) }
+  =
+  match l with
+  | Nil -> ()
+  | Cons _ t -> iSort_sorts t
+  end
+
+  let rec lemma iSort_permut (l :list int) 
+    ensures { permut (iSort l) l }
+  =
+  match l with
+  | Nil -> ()
+  | Cons _ t -> iSort_permut t
+  end
+
+
+  
+
+
+end
+

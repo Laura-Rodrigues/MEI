@@ -1,0 +1,145 @@
+
+
+module ToDo_spec
+
+  type task 
+
+  clone export set.SetImp with type elt = task
+
+  val pending : set 
+  val ddone   : set 
+
+
+  val addT (t :task) : ()
+    requires { not mem t (union pending ddone) }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    (* ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone) } *)
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) \/ t' = t }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending }
+
+
+  val completeT (t :task) : ()
+    requires { mem t pending }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone)   \/ t' = t  }
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) /\ t' <> t }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending, ddone }
+    
+
+  val deleteT (t :task) : ()
+    requires { mem t (union pending ddone) }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone)   /\ t' <> t }
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) /\ t' <> t }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending, ddone }
+    
+end
+
+
+
+
+module Label_spec
+
+  type item 
+  type llabel 
+
+  clone set.SetApp with type elt = llabel
+  clone fmap.MapApp with type key = item 
+
+  type labelst = { mutable labels : t set }
+    invariant { forall i :item. mem i labels -> find i labels <> SetApp.empty }
+    by { labels = create() }
+
+  val state : labelst
+
+
+  val affix (i :item) (l :llabel) : ()
+    ensures { mem i state.labels /\ SetApp.mem l (find i state.labels) } 
+    ensures { forall i' :item, l' :llabel. mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels)) -> 
+                                           mem i' state.labels /\ SetApp.mem l' (find i' state.labels)  }
+    ensures { forall i' :item, l' :llabel. mem i' state.labels /\ SetApp.mem l' (find i' state.labels) ->
+                                           (i' = i /\ l' = l) \/ 
+                                           (mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels))) }
+    writes  { state.labels }
+
+
+  val detach (i :item) (l :llabel) : ()
+    requires { mem i state.labels /\ SetApp.mem l (find i state.labels) }
+    ensures  { mem i state.labels -> not (SetApp.mem l (find i state.labels)) }
+    ensures  { forall i' :item, l' :llabel. mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels)) -> 
+                                            (i' = i /\ l' = l) \/ 
+                                            mem i' state.labels /\ SetApp.mem l' (find i' state.labels)  }
+    ensures  { forall i' :item, l' :llabel. mem i' state.labels /\ SetApp.mem l' (find i' state.labels) ->
+                                            (mem i' (old state.labels) /\ SetApp.mem l' (find i' (old state.labels))) }
+    writes   { state.labels }
+					    
+
+  val clear (i :item) : ()
+    ensures  { not (mem i state.labels) }
+    writes   { state.labels }
+					    
+
+end
+
+
+
+
+
+module ToDo_TStamps
+
+  use int.Int
+
+  clone ToDo_spec
+  clone Label_spec with type item = task, type llabel = int
+
+  val ref time :int
+
+
+  let completeT_ts (t :task) : ()
+    requires { mem t pending }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone)   \/ t' = t  }
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) /\ t' <> t }
+    ensures  { MapApp.mem t state.labels /\ SetApp.mem time (MapApp.find t state.labels) }
+    ensures  { time = 1 + old time }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending, ddone, state.labels, time }
+  = completeT t;
+    time <- time + 1;
+    affix t time
+
+
+
+  val t1 :task
+  val t2 :task
+  val t3 :task
+
+  let main ()
+    requires { pending = ddone = empty }
+    requires { t1<>t2 /\ t1<>t3 /\ t2<>t3 }
+    ensures  { time = old time + 3 }
+    ensures  { pending = empty }
+    ensures  { mem t1 ddone /\ mem t2 ddone /\ mem t3 ddone }
+  = addT t1; 
+    addT t2; 
+    completeT_ts t2;
+    addT t3; 
+    completeT_ts t1;
+    completeT_ts t3
+
+
+
+
+end
+

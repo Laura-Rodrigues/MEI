@@ -1,0 +1,98 @@
+
+(* This module contains the specification of a ToDo list,
+   based on two sets of tasks: pending and done (completed). 
+   It is implemented using mutable sets. 
+   1. Verify the addT function that creates a new pending task
+   2. Complete the specification and implementation of the 
+      completeT function, that moves a task from the pending
+      list to the done list. Verify the function
+   3. Complete the specification and implementation of the 
+      deleteT function, that removes a task from both lists.
+      Verify the function. 
+   4. Complete the main function with the preconditions necessary
+      to verify it successfully. 
+      
+*)
+
+
+
+module ToDo
+
+  type task 
+
+  clone export set.SetImp with type elt = task
+
+  val pending : set 
+  val ddone   : set 
+
+
+  let addT (t :task) : ()
+    requires { not mem t (union pending ddone) }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone) }
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) \/ t' = t }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending }
+  = add t pending
+
+
+  let completeT (t :task) : ()
+    requires { mem t pending }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone)   \/ t' = t  }
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) /\ t' <> t }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending, ddone }
+  = add t ddone ;
+    remove t pending 
+    
+
+  let deleteT (t :task) : ()
+    requires { mem t (union pending ddone) }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { forall t' :task. mem t' ddone   <-> mem t' (old ddone)   /\ t' <> t }
+    ensures  { forall t' :task. mem t' pending <-> mem t' (old pending) /\ t' <> t }
+    ensures  { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    writes   { pending, ddone }
+  = remove t pending ;
+    remove t ddone 
+    
+
+
+
+
+
+  val t1 :task
+  val t2 :task
+
+
+  let main () 
+    requires { t1 <> t2 }
+    requires { not (mem t1 (union pending ddone)) }
+    requires { not (mem t2 (union pending ddone)) }
+    requires { forall t' :task. (mem t' ddone -> not mem t' pending)
+                             /\ (mem t' pending -> not mem t' ddone) }
+    ensures  { not mem t1 (union ddone pending) }
+    ensures  { not (mem t2 pending) }
+    ensures  { mem t2 ddone }
+  = addT t1; 
+    addT t2; 
+    deleteT t1; 
+    completeT t2
+
+
+
+
+
+end
+
+
+
+
+

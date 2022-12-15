@@ -1,0 +1,72 @@
+sig Password {}
+sig User {
+	var password : set Password
+}
+var sig LoggedIn in User {}
+
+// Guess what is the behavior of this authentication concept!
+//
+// To check how many points you have so far you can use the different commands. 
+// The maximum is 5 points.
+
+fun find [p : Password] : set User {  
+	password.p
+}
+
+
+pred register [u : User, p : Password]{
+  	historically no u.password and u not in LoggedIn
+  	password' = password + u->p
+  	LoggedIn' = LoggedIn + u
+	
+}
+
+pred deleteAccount [u : User, p : Password]{
+	u in LoggedIn
+  	password' = password - u->p
+  	LoggedIn' = LoggedIn - u
+}
+
+pred login [u : User, p : Password]{ 
+	u not in LoggedIn and u in find[p]
+  	LoggedIn' = LoggedIn + u
+  	password' = password 
+  	
+}
+
+pred logout [u : User, p : Password]{ 
+	u in LoggedIn 
+  	LoggedIn' = LoggedIn - u
+  	password' = password 
+  	
+}
+ 
+pred changePassword [u : User, p : Password]{
+	u in LoggedIn and historically p not in u.password
+  	password' = password - u->u.password + u->p
+  	LoggedIn' = LoggedIn 
+  	
+}
+
+pred stutter {
+	// Stuttering 
+  	password' = password
+  	LoggedIn' = LoggedIn
+}
+
+//uma pass que n esteja associada a nenhum user tem que ser eliminada
+
+pred behavior {
+  // Initial state
+  	no password
+	no LoggedIn
+  
+  // Transitions
+  	always ( stutter or some u : User, p : Password | register[u,p] or
+      							deleteAccount[u,p] or
+  							login[u,p] or			
+      							logout[u,p] or
+							changePassword[u,p]
+  )
+
+}
