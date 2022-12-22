@@ -2,7 +2,7 @@ Redis funciona como um mecanismo de cache
 
 
 
-Questions 
+# Questions 
 
 1. What is this application's architecture and what pattern(s) are present?
 
