@@ -30,3 +30,7 @@
 
 ## MFES:
 - [ ] Add TP4
+- [ ] Atualizar projeto redes
+- [ ] Atualizar projeto CP
+
+
