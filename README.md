@@ -6,12 +6,12 @@
 
 4^th year - 1^st sem |  
 --- | --- | ---
-DAA | 
-ASCN | 
-Redes | 
-MFES | 
-RAS | 
- | 
+DAA | Exercícios | Projeto
+ASCN | Exercícios | Projeto
+ESR |  | Projeto
+MFES | Exercícios | Projeto
+RAS |  | Projeto
+CP | Exercícios | Projeto
 
 
 
