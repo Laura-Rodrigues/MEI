@@ -4,7 +4,7 @@
 
 
 
-4^th year - 1^st sem |  
+4^th year - 1^st sem |  |
 --- | --- | ---
 DAA | Exercícios | Projeto
 ASCN | Exercícios | Projeto
