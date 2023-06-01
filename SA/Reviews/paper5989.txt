@@ -1,0 +1,17 @@
+De um modo geral, considero que tema de Green Computing foi bem desenvolvido. O tema foi iniciado com uma introdução ilucidativa que permite a qualquer leitor situar-se mesmo que não tenha conhecimentos prévios sobre este. Nas secções 1.2 e 1.3 foram abordados os pontos principais do tema de forma concisa e clara.
+
+Na secção 1.4 foram apresentados alguns exemplos de estado da arte, nos quais os autores fizeram uma análise cuidada de vários exemplos de aplicações sustentáveis conhecidas mas também tiveram o cuidado de analisar o oposto, ou seja, casos em que não são aplicadas e os seus impactos.
+
+Na secção 1.5 foi analisado um caso de estudo específico de forma mais extensiva. Considero que poderia ter sido feita menção ao tema "green disposal" mencionado anteriormente de maneira a fazer uma ponte entre secções, no entanto, este aspeto não desvaloriza a qualidade da análise.
+
+
+O segundo tema foi, mais uma vez, bem desenvolvido, tendo sido dados exemplos de aplicações reais do tema em análise.
+
+É de notar que detetei na secção 2.3, página 10, uma referência não detalhada na secção respetiva - "Fleury (2001)".
+
+Recomendaria que, em ambos os temas, fosse adicionado pelo menos um exemplo de caso de estudo que fizesse uma maior relação com a unidade curricular de Sensorização e Ambiente. Por exemplo, casos em que possam ser usados sensores para detetar os impactos positivos da green computing ou negativos da negligência desta (como deteção de dados atmosféricos) ou sensores de movimento para poder ter uma percepção da cognição humana, ou seja, estado de stress, deteção de emoções, capacidade de resolução de problemas, entre outros.
+
+Apesar da análise detalhada de ambos temas creio que teria sido uma perspetiva interessante tentar, no fim, relacionar os dois temas. Apesar de estes não estarem diretamente relacionados, poderia-se argumentar que a computação cognitiva pode contribuir para a criação de tecnologias mais eficientes em termos de energia e recursos, por meio da otimização de algoritmos e da redução do consumo de energia em dispositivos computacionais. Além disso, pode-se recorrer à psicologia da cognição para entender o comportamento humano em relação ao uso de tecnologias, o que pode ajudar a promover uma mudança de hábitos em relação ao consumo de recursos computacionais e à adoção de práticas mais sustentáveis.
+
+Em último, creio que o artigo beneficiaria com uma conclusão. Nesta os autores poderiam referir as principais conclusões à sugestão mencionada anteriormente.
+

@@ -1,0 +1,88 @@
+Todos os conceitos foram devidamente explicados e desenvolvidos, sendo relacionados uns com os outros e com a matéria lecionada nesta unidade curricular.
+
+
+
+
+
+
+
+abstract e intro
+
+O artigo aborda o potencial da computação de borda como uma arquitetura distribuída para atender às crescentes demandas de processamento de dados em tempo real, com o objetivo de apresentar uma perspetiva equilibrada sobre esse paradigma e as preocupações que podem surgir da sua implementação, particularmente em relação à privacidade e ética.
+
+A introdução explica como o aumento do número de dispositivos conectados em nosso dia a dia criou uma demanda por processamento de dados mais eficiente e rápido, e como a computação de borda pode ajudar as empresas a economizar dinheiro processando dados localmente, minimizando a quantidade de dados que precisam ser enviados para um local central. O artigo destaca que uma das questões mais importantes que a computação de borda pode suportar em aplicações de IoT é o Big Data, que torna difícil controlar e analisar.
+
+O artigo reconhece que preocupações éticas e de privacidade naturalmente surgem nesses sistemas, onde a confiança e os limites devem ser muito cuidadosamente esclarecidos. O artigo cita as palavras de Vincent Cerf, um dos fundadores da Internet e criador do protocolo TCP / IP, que "As tecnologias não têm ética" e explica que o contexto é um fator muito importante relacionado à privacidade. Localizações, cultura, religião, acordos e assim por diante podem moldar o contexto, o que pode ser útil na conceção de estruturas para a Internet das Coisas.
+
+O artigo define as questões de privacidade e ética na computação de borda e apresenta alguns casos concretos e soluções existentes que podem permitir a implementação da computação de borda para atender à crescente demanda por processamento de dados sem comprometer a privacidade do usuário. O artigo conclui formulando a principal questão que percorre todo o estudo: "O uso da computação de borda é viável, seguro e ético?" No geral, o artigo fornece uma exploração cuidadosa e bem informada das questões relacionadas à privacidade e ética na computação de borda.
+
+2.1 edge computing
+
+Este texto aborda as preocupações relacionadas com a privacidade e a ética no contexto da Edge Computing, uma arquitetura distribuída que permite o processamento de dados em tempo real e próximo da fonte. O texto começa por apresentar a definição e contextualização da Edge Computing, explicando como esta arquitetura pode minimizar a latência e reduzir o consumo de energia ao processar dados localmente em dispositivos de borda, em vez de enviar para um servidor remoto. Ao reduzir a quantidade de dados que precisa de ser transmitida pela rede, a Edge Computing também pode ajudar a reduzir a congestão da rede e poupar largura de banda. Ainda assim, o texto destaca que é importante ter em conta as preocupações relacionadas com a privacidade e ética, especialmente quando se lida com grandes quantidades de dados pessoais, e que é necessário garantir que os utilizadores tenham controlo sobre a utilização dos seus próprios dados. O artigo tem como objetivo explorar as questões de privacidade e ética na Edge Computing, bem como apresentar soluções que possam permitir a implementação desta arquitetura sem comprometer a privacidade do utilizador.
+ou
+
+Este texto discute os conceitos de privacidade e ética no contexto da computação de borda (edge computing). A computação de borda é uma arquitetura distribuída que oferece muitas vantagens em relação à computação em nuvem (cloud computing), especialmente quando se trata de aplicativos que exigem baixa latência e alto desempenho.
+
+O texto apresenta as principais características da computação de borda, incluindo a capacidade de processar dados mais próximos dos dispositivos de origem, minimizando assim a latência e reduzindo o consumo de energia. Além disso, a computação de borda pode reduzir a congestão de rede, permitindo que muitos dispositivos operem em uma largura de banda muito menor e mais eficiente. A distribuição de servidores de dados nos pontos onde os dados são gerados permite que as empresas operem muitos dispositivos com largura de banda limitada, aumentando a eficiência da rede.
+
+O texto também discute as diferenças entre a computação de borda e a computação em nuvem. Embora ambas as arquiteturas tenham suas próprias vantagens, a computação de borda é especialmente adequada para aplicativos que exigem baixa latência e alto desempenho, como monitoramento em tempo real, automação industrial e carros autônomos. Além disso, a computação de borda pode oferecer melhor resiliência e segurança de dados, pois pode processar dados sensíveis sem divulgá-los na internet.
+
+Por fim, o texto destaca a relação entre a computação de borda e a Internet das coisas (IoT). A computação de borda pode ajudar a superar as limitações da IoT, como latência de rede, segurança e recursos computacionais limitados, fornecendo nós computacionais distribuídos que estão mais próximos dos usuários finais.
+
+No geral, o texto fornece uma introdução clara e abrangente aos conceitos de privacidade e ética na computação de borda, bem como às vantagens dessa abordagem em relação à computação em nuvem e sua relação com a IoT.
+
+
+2.2 Privacy
+
+A secção aborda as preocupações com a privacidade na computação periférica e destaca os desafios de manter a privacidade num sistema distribuído e descentralizado. O texto explica que a privacidade é o controlo sobre a exposição de informações pessoais sensíveis, mas o fluxo de informações e computação na periferia da rede na computação periférica leva à descentralização de dados, tornando-os vulneráveis a violações de segurança. A secção cita investigações que mostram que os dispositivos IoT são alvos de violações de segurança e privacidade devido à sua incapacidade de estabelecer confiança explícita para outros dispositivos e estabelecer uma conexão de confiança.
+
+O texto sugere que uma maneira de garantir o anonimato num ambiente onde a desconfiança é prevalente é não registar informações que vinculem os dados ao dispositivo de onde vieram. No entanto, o artigo observa que isso não é viável em sistemas distribuídos de computação periférica, porque os utilizadores devem ser autenticados para participar neles. A autenticação é um dos conceitos mais comuns em artigos científicos que abordam a privacidade na computação periférica.
+
+O texto destaca a autenticidade como um requisito de privacidade na computação periférica, juntamente com a confidencialidade, integridade e outros. Ele observa que a autenticidade ajuda a estabelecer a fonte de informação e contribui para a identidade dos participantes e confiança na periferia da rede. No entanto, isso parece contradizer a necessidade de anonimato na computação periférica, criando um desafio para a proteção da privacidade.
+
+A secção continua a discutir o tipo de dados que são sensíveis no contexto da computação periférica para a deteção social. Ele observa que os metadados coletados dos participantes, como informações de geolocalização e de horários, podem ser sensíveis e potencialmente prejudiciais se revelados. A secção conclui resumindo a proteção de privacidade na computação periférica como o controlo e proteção dos metadados de dados coletados na periferia da rede, com autenticação anónima para confiança nos participantes que interagirão com os dados.
+
+Em geral, o texto fornece uma visão abrangente das preocupações com a privacidade na computação periférica e destaca os desafios de manter a privacidade num sistema distribuído e descentralizado. O artigo sugere que a autenticação e autenticidade são requisitos essenciais para a proteção da privacidade na computação periférica, mas o anonimato também é necessário para garantir a privacidade.
+
+
+2.3 Ethical Concerns
+
+O texto aborda as preocupações éticas em relação ao uso do Edge Computing. Ele destaca os desafios de equilibrar a conveniência e a segurança dos sistemas de IoT com as expectativas de privacidade dos clientes e requisitos regulatórios. O texto aponta que as preocupações éticas podem variar dependendo da percepção individual, contexto e localização. Isso requer serviços personalizáveis que permitam consentimento flexível ou recusa. No entanto, os acordos de usuário atuais podem não fornecer transparência suficiente para os consumidores, o que pode levar à coleta e uso de dados sem seu pleno entendimento ou consentimento. Além disso, as aplicações de IoT geralmente não possuem interfaces de comunicação para que os usuários possam alterar as configurações de segurança, limitando seu controle sobre os dispositivos.
+
+O texto também discute como a adoção do IoT em transporte público pode levar a consequências não intencionais que podem restringir as ações individuais. Por exemplo, se o IoT é usado para controlar o acesso ao transporte público, pode melhorar a eficiência do sistema automatizando o processo de verificação de bilhetes ou passes válidos. No entanto, isso também pode introduzir riscos inesperados, como mais vandalismo, à medida que os usuários podem estar mais inclinados a danificar a infraestrutura de IoT para contornar o sistema de controle de acesso. Para mitigar esses riscos, podem ser necessárias medidas adicionais ou novos protocolos. Como consequência, isso pode potencialmente limitar a liberdade e a autonomia dos indivíduos, submetendo-os a uma maior vigilância ou a regulamentações mais rígidas para proteger a infraestrutura de IoT.
+
+Além disso, o texto observa que o custo de abordar questões de segurança e privacidade pode ser adicionado ao custo de capital da tecnologia. Isso requer que a gestão tome decisões sobre o nível de segurança e os custos adicionais envolvidos para encontrar um ponto ótimo. O texto destaca que os operadores desonestos que coletam e usam dados podem ter alguma vantagem de curto prazo sobre os proprietários de negócios honestos.
+
+
+3.1 Edge computing usage scenarios
+
+O texto fornece uma visão geral de dois cenários em que a computação de borda pode ser usada para melhorar o desempenho e reduzir riscos. O primeiro cenário está relacionado com a plataforma de perfuração de petróleo, onde dados críticos são coletados de vários sensores e processados em tempo real no local para evitar latência e tempo de inatividade, reduzindo os riscos de possíveis interrupções que podem levar a desastres. O segundo cenário está relacionado com a indústria de saúde, onde a computação de borda pode ser usada para processar dados em tempo real coletados de dispositivos vestíveis e sensores, melhorando a qualidade geral do atendimento e reduzindo o tempo de resposta.
+
+O texto levanta importantes preocupações éticas relacionadas à coleta, processamento e partilha de dados pessoais em sistemas de saúde. Os autores reconhecem a sensibilidade dos dados que estão sendo coletados e enfatizam a importância da confiança, anonimato e bases lógicas para coleta e processamento de dados. No entanto, o texto poderia beneficiar de uma discussão mais detalhada dos potenciais riscos e desafios relacionados à privacidade e segurança na computação de borda.
+
+Em geral, o texto fornece uma boa introdução ao tema da computação de borda e suas aplicações em indústrias sensíveis, como perfuração de petróleo e saúde. Ele destaca os potenciais benefícios da computação de borda, ao mesmo tempo que levanta importantes questões éticas e de privacidade que precisam ser abordadas para garantir o uso responsável de dados sensíveis.
+
+3.2 Solutions in the Privacy Domain - Ring Signatures
+
+Este texto discute soluções para preocupações de privacidade e ética em computação de borda, com foco na criptografia de dados e tecnologia blockchain, especificamente o uso de assinaturas em anel. Os autores propõem que os dispositivos de borda tenham mais poder de computação do que os dispositivos IoT, tornando tecnicamente viável implementar soluções de preservação de privacidade com a computação de borda. A solução proposta baseia-se em mecanismos de autenticação de grupo usando assinaturas em anel, que permitem a autenticação necessária para que o SSEC funcione, ao mesmo tempo que preserva a privacidade dos dispositivos, tornando os dados coletados pelos nós de borda não relacionáveis à fonte geradora.
+
+O texto fornece uma explicação detalhada de como as assinaturas em anel funcionam e como elas podem ser usadas para alcançar maior anonimato na computação de borda. Também discute as limitações da tecnologia, incluindo o problema da má escolha na seleção de membros do anel, o que pode levar a padrões distinguíveis em sua escolha de anéis. Os autores sugerem que um tamanho máximo de anel seja imposto em aplicativos tolerantes à latência para garantir que os dispositivos sejam divididos em vários anéis, promovendo assim maior anonimato.
+
+Em geral, o texto fornece uma boa visão geral do uso de assinaturas em anel na computação de borda e destaca os benefícios e limitações dessa abordagem. No entanto, poderia se beneficiar de exemplos mais concretos de como essa tecnologia está sendo usada em aplicativos do mundo real, bem como uma discussão de outras soluções para preocupações de privacidade e ética na computação de borda.
+
+
+3.3 Solutions in Ethical Domain - Boolean Algebra
+
+Este texto discute soluções para questões de privacidade e ética em Edge Computing. Ele começa por mencionar um estudo que destaca a importância de políticas claras de privacidade e segurança de dados, bem como acordos de utilizador, para melhor entender as necessidades dos clientes e fornecer serviços personalizados. O artigo também menciona uma abordagem computacional para a tomada de decisões éticas e morais na concepção de sistemas, inspirada em modelos desenvolvidos em neurociência cognitiva.
+
+O texto segue para destacar a importância de abordagens lógicas para a engenharia de decisões éticas, em oposição a abordagens baseadas em redes neurais ou algoritmos evolutivos, que podem não ser transparentes para a compreensão humana. O texto destaca o uso de um método booleano para implementar ética em dispositivos inteligentes, onde cinco categorias diferentes são usadas para determinar o status ético de um cenário. Estas são denominadas como: Proibido, Desaprovado, Permitido, Recomendado e Obrigatório. O texto apresenta um exemplo do uso de um dispositivo médico que mede a condição de saúde de um paciente e envia mensagens de estado de saúde para amigos e familiares próximos, indicando que a categoria e modo éticos são usados para decidir se a mensagem deve ser enviada para um amigo ou um parente, dependendo da urgência da situação.
+
+Embora o texto ofereça algumas soluções interessantes para questões éticas e de privacidade em Edge Computing, ele poderia se beneficiar de exemplos mais concretos de como essas soluções são implementadas na prática e uma discussão mais ampla sobre outras soluções possíveis.
+
+4 Challenges and Benefits of a Secure Edge Computing Structure
+
+O artigo discute os desafios e benefícios da implementação de uma estrutura de computação de borda segura. Um desafio é a complexidade e despesa de implementar uma infraestrutura de borda, que requer planeamento cuidadoso e equipamentos e recursos adicionais. A perda de dados é outro desafio, uma vez que a computação de borda só pode lidar com subconjuntos de informação, e as empresas devem escolher cuidadosamente quais os dados a processar na borda e quais enviar para servidores centrais para evitar a perda de dados críticos. A segurança também é uma preocupação, já que o processamento de dados fora da rede pode estar exposto a potenciais ataques, e as organizações devem implementar protocolos de segurança robustos e métodos de criptografia para proteger os dados em trânsito e em repouso.
+
+O artigo também discute preocupações éticas relacionadas com o IoT na indústria hoteleira, enfatizando a importância de políticas claras e abertas em relação à privacidade e segurança de dados para fomentar a confiança dos clientes em sistemas IoT. O artigo apresenta duas soluções para a tomada de decisões éticas: uma estratégia baseada em lógica e uma técnica Booleana. Embora ambos os métodos tenham vantagens, também têm desvantagens e podem não ser adequados para todos os tipos de sistemas IoT. O artigo sugere que combinar várias teorias éticas pode ser necessário para resolver determinados problemas éticos.
+
+No geral, o artigo fornece uma boa visão geral dos desafios e benefícios da implementação de uma estrutura de computação de borda segura, bem como a importância da tomada de decisões éticas no contexto de sistemas IoT. As soluções apresentadas fornecem ideias úteis sobre como as organizações podem enfrentar esses desafios e garantir que seus sistemas IoT sejam seguros e éticos.
