@@ -1,0 +1,27 @@
+Há várias estratégias que podem ser usadas para melhorar a accuracy de um modelo de Machine Learning. 
+Algumas sugestões são:
+
+    - Aumentar a quantidade de dados de treinamento: mais dados podem ajudar o modelo a capturar melhor 
+    os padrões dos dados e, assim, melhorar a sua capacidade de generalização.
+
+    - Ajustar a arquitetura da rede: pode-se experimentar diferentes arquiteturas para a rede, aumentando 
+    ou diminuindo o número de camadas ou neurônios em cada camada, por exemplo.
+
+    - Ajustar os hiperparâmetros: pode-se experimentar diferentes valores para os hiperparâmetros, como a 
+    taxa de aprendizado (learning rate) ou o tamanho do batch.
+
+    - Realizar o pré-processamento dos dados: pode-se pré-processar os dados de entrada, normalizando-os 
+    ou aplicando outras técnicas para reduzir o ruído ou remover características irrelevantes.
+
+    - Tentar outras funções de ativação: além das funções utilizadas no modelo atual, pode-se experimentar 
+    outras funções de ativação para as camadas, como a LeakyReLU ou a ELU.
+
+    - Experimentar outras técnicas de regularização: pode-se aplicar outras técnicas de regularização, 
+    como o dropout ou o weight decay, para reduzir o overfitting.
+
+    - Tentar outras otimizações: além do Adam, pode-se experimentar outras otimizações, como o RMSprop 
+    ou o Adagrad.
+
+É importante lembrar que não há uma solução única para melhorar a accuracy de um modelo, e que diferentes 
+estratégias podem funcionar melhor em diferentes contextos. Por isso, é importante experimentar diferentes 
+abordagens e avaliar os resultados obtidos.
