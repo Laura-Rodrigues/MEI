@@ -1,0 +1,8 @@
+app SA turística:
+
+geofencing
+recomendações conforme o clima e poluição - indoor, jardins
+crowd sencing - lotação do espaço turistico
+dados estatísticos - lotação por hora do dia, numero de cliques na app (sensores)
+recomendação conforme gostos do utilizador
+destaque de monumentos que paguem para aparecer em primeiro
