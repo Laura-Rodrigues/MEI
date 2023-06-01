@@ -1,0 +1,11 @@
+A secção 2 faz uma excelente introdução ao tema situando-o na respetiva área de estudo. Esta permite ao leitor, principalmente se este não estiver dentro do assunto, compreender a profundidade da área em que o tema se insere e assim perceber a importância deste.
+
+O grupo teve também o cuidado de definir o domínio de pesquisa o que, na minha opinião se torna importante para informar o leitor dos limites da investigação. Como domínio bem definido foi caraterizado o tema principal e os seus objetivos, o que permite assim assegurar o seu sucesso e impacto nos leitores. Não só isto mas permite que sejam identificadas questões relevantes, teorias, entre outras. Considero assim que, tanto a secção 3 como as suas subsecções explicaram de forma completa os vários aspetos do tema e serviram para ilustrar bem o domínio de pesquisa facilitando a compreensão da análise dos casos de estudo apresentados mais à frente.
+
+A secção 4.1 pareceu-me abordar os temas de visão por computador de forma objetiva e de fácil compreensão. Recomendo apenas relacionar estas categorias com a aplicação de aprendizagem profunda. Assim sendo, deixo aqui a sugestão de mencionar, por exemplo, filtros de imagens (deteção de ruído de imagens) que são, no fundo, uma das principais aplicações de aprendizagem profunda a visão por computador nas várias categorias mencionadas. No entanto, apesar de achar que isto completaria esta secção, não desvalorizo a atual qualidade desta.
+
+Quanto à secção 5 creio que todos os aspetos relevantes sobre os vários sistemas inteligentes foram apresentados de forma bem estruturada. Todos se mostraram relevantes ao tema e foram bem expostos, não tendo assim nada a apontar.
+
+Achei interessante a menção da secção 6 por relacionar a matéria que será lecionada no perfil de sistemas inteligentes com o tema em estudo. Não só foi uma abordagem interessante mas serviu para complementar o artigo positivamente ao mencionar um assunto tão importante e muitas vezes negligenciado.
+
+Recomendo apenas uma revisão cuidada do texto pois encontrei alguns erros ortográficos e lapso de algumas palavras ao longo de todo o artigo. 
