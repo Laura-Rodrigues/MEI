@@ -17,8 +17,8 @@
 
 | 4^th year - 2^nd semester |    |    |
 | --- | --- | --- |
-| Agentes e Sistemas Multiagente |    | Projeto | 
-| Aprendizagem Profunda | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/AP) | Projeto |
+| Agentes e Sistemas Multiagente | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/ASMa) | [Projeto](https://github.com/edumagalhaes10/ASMa_TP) | 
+| Aprendizagem Profunda | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/AP) | [Projeto](https://github.com/Laura-Rodrigues/AP) |
 | Sensorização e Ambiente | Exercícios | Projeto |
 | Visão por Computador e Processamento de Imagem |    | Projeto |
 | Visualização e Iluminação |    | Projeto |
