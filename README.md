@@ -12,7 +12,7 @@
 | Engenharia de Serviços em Rede |    | [Projetos](https://github.com/Laura-Rodrigues/MEI/tree/main/ESR/esr-tp) |
 | Métodos Formais em Engenharia de Software | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/MFES) |    |
 | Requisitos e Arquiteturas de Software |    | [Projeto](https://github.com/Laura-Rodrigues/RASBET) |
-| Computação Paralela | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/CP) | [Projetos](https://github.com/Laura-Rodrigues/MEI/tree/main/CP/Computacao_Paralela) |
+| Computação Paralela | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/CP) | [Projetos](https://github.com/Laura-Rodrigues/Parallel_Computing_CP) |
 
 
 | 4^th year - 2^nd semester |    |    |
