@@ -1,1 +1,0 @@
-# Computacao_Paralela
