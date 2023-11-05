@@ -20,7 +20,7 @@
 | Agentes e Sistemas Multiagente | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/ASMa) | [Projeto](https://github.com/edumagalhaes10/ASMa_TP) | 
 | Aprendizagem Profunda | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/AP) | [Projeto](https://github.com/Laura-Rodrigues/AP) |
 | Sensorização e Ambiente | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/SA) | [Projeto](https://github.com/Laura-Rodrigues/SA) |
-| Visão por Computador e Processamento de Imagem | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VCPI) | Projeto |
+| Visão por Computador e Processamento de Imagem | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VCPI) | [Projeto](https://github.com/Laura-Rodrigues/VCPI) |
 | Visualização e Iluminação | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VI) | Projeto |
 | Visualização em Tempo Real | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VTR) | Projeto |
 
