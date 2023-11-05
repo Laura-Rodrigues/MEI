@@ -19,7 +19,7 @@
 | --- | --- | --- |
 | Agentes e Sistemas Multiagente | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/ASMa) | [Projeto](https://github.com/edumagalhaes10/ASMa_TP) | 
 | Aprendizagem Profunda | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/AP) | [Projeto](https://github.com/Laura-Rodrigues/AP) |
-| Sensorização e Ambiente | Exercícios | Projeto |
+| Sensorização e Ambiente | Exercícios | [Projeto](https://github.com/Laura-Rodrigues/SA) |
 | Visão por Computador e Processamento de Imagem |    | Projeto |
 | Visualização e Iluminação |    | Projeto |
 | Visualização em Tempo Real | Exercícios | Projeto |
