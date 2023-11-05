@@ -25,12 +25,3 @@
 | Visualização em Tempo Real | Exercícios | Projeto |
 
 
-
-# TODO
-
-## MFES:
-- [ ] Add TP4
-- [ ] Atualizar projeto redes
-- [ ] Atualizar projeto CP
-
-
