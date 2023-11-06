@@ -22,6 +22,6 @@
 | Sensorização e Ambiente | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/SA) | [Projeto](https://github.com/Laura-Rodrigues/SA) |
 | Visão por Computador e Processamento de Imagem | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VCPI) | [Projeto](https://github.com/Laura-Rodrigues/VCPI) |
 | Visualização e Iluminação | [Material](https://github.com/Laura-Rodrigues/MEI/tree/main/VI) | [Projeto](https://github.com/Laura-Rodrigues/VI) |
-| Visualização em Tempo Real | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VTR) | Projeto |
+| Visualização em Tempo Real | [Exercícios](https://github.com/Laura-Rodrigues/MEI/tree/main/VTR) | [Projeto](https://github.com/Laura-Rodrigues/VTR) |
 
 
