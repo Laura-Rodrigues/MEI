@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<project name="VSM - Linear Metric" width=800 height=600 >
+	<assets>
+		<attributes>
+			<attribute type="RENDERER" name="minVariance" data="FLOAT" value="0.0002" />
+			<attribute type="RENDERER" name="derivWeight" data="FLOAT" value="0.25" />
+		</attributes>
+		<scenes>
+			<scene name="MainScene">
+				<file name="..\models\ntg-bench\bench.obj"/>
+			</scene>
+		</scenes>
+		<viewports>
+			<viewport name="MainViewport" >
+				<ORIGIN x = 0 y = 0 />
+				<SIZE width="0.75" height ="1"/>
+				<CLEAR_COLOR r="0.0" g="0.0" b="0.0" />
+			</viewport>
+			
+			<viewport name="SmallViewport1" >
+				<ORIGIN  x="0.75" y="0.66" />
+				<SIZE width=".25"  height="0.33" />
+				<CLEAR_COLOR  r="0.0" g="0.0" b="0.2" />
+			</viewport>
+			
+			<viewport name="SmallViewport2" >
+				<ORIGIN x=".75" y="0.33" />
+				<SIZE width=".25"  height="0.33" />
+				<CLEAR_COLOR  r="0.0" g="0.0" b="0.2" />
+			</viewport>
+			
+			<viewport name="SmallViewport3" >
+				<ORIGIN x=".75" y="0" />
+				<SIZE width=".25"  height="0.33" />
+				<CLEAR_COLOR  r="0.0" g="0.0" b="0.2" />
+			</viewport>
+		</viewports>
+		
+		<cameras>
+			<camera name="MainCamera">
+				<viewport name="MainViewport" />
+				<projection TYPE="PERSPECTIVE" FOV="60.0" NEAR="1.0" FAR="1000.0" />
+				<POSITION x="-240.0" y="180.0" z="-330" />
+				<VIEW x="0.54" y="-0.37" z="0.75" />
+				<UP x="0.0" y="1.0" z="0.0" />
+			</camera>
+			
+			<camera name="testCamera" >
+				<viewport name="MainViewport" />
+				<projection TYPE="PERSPECTIVE" FOV="60.0" NEAR="1.0" FAR="100.0" />
+				<POSITION x="-23.277" y="18.541" z="30.143" />
+				<VIEW x="0.397" y="-0.644774" z="-0.652" />
+				<UP x="0.0" y="1.0" z="0.0" />
+			</camera>
+		</cameras>
+		
+		<lights>
+			<light name="Sun" >
+				<POSITION x="597" y="390" z="700" />
+				<DIRECTION x="0.597" y="-0.390" z="0.700" />
+				<COLOR r="0.9" g="0.9" b="0.9" />
+			</light>
+		</lights>
+		
+		<materialLibs>
+			<materialLib filename="shadowMaterials3.mlib"/>
+		</materialLibs>
+	</assets>
+	
+	<pipelines>
+		<pipeline name="shadow" defaultCamera="testCamera">
+		
+			<pass class="depthmap" name="getShadowMap">
+				<scenes>
+					<scene name="MainScene" />
+				</scenes>
+				<camera name="testCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<renderTarget name="depth" fromLibrary="Shadow Materials" />
+					
+				<materialMaps>
+					<map fromMaterial="*" toLibrary="Shadow Materials" toMaterial="depthOnly" />
+				</materialMaps>
+			</pass>
+
+			<pass class="quad" name="sobelPass" >
+				<renderTarget name="sobel" fromLibrary="Shadow Materials" />
+				<material name="sobelM" fromLibrary="Shadow Materials" />
+			</pass>
+			
+			<!--pass class="quad" name="blurrX" >
+				<renderTarget name="blurredX" fromLibrary="Shadow Materials" />
+				<material name="blurX" fromLibrary="Shadow Materials" />
+			</pass>
+
+			<pass class="quad" name="blurrXY" >
+				<renderTarget name="blurredXY" fromLibrary="Shadow Materials" />
+				<material name="blurY" fromLibrary="Shadow Materials" />
+			</pass-->
+
+
+			<pass class="default" name="computeShadowsToRT">
+				<scenes>
+					<scene name="MainScene" />
+				</scenes>
+				<camera name="testCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				
+				<renderTarget name="simple" fromLibrary="Shadow Materials" />
+				<injectionMaps>
+					<map toMaterial="*">
+						<shader fromMaterial ="shadowed" fromLibrary="Shadow Materials" />
+						<textures>
+                            <!--texture name="moments" fromLibrary="Shadow Materials" toUnit=1-->
+							<texture name="blurredXY" fromLibrary="Shadow Materials" toUnit=1>
+								<MIN_FILTER value="LINEAR" />
+								<MAG_FILTER value="LINEAR" />
+							</texture>
+						</textures>
+					</map>	
+				</injectionMaps>	
+			</pass>
+			
+			
+			<pass class="quad" name="showComputedShadows">
+				<viewport name="MainViewport" />				
+				<texture name="offscreenrender" fromLibrary="Shadow Materials"/>
+			</pass>
+			
+			<pass class="quad" name="showShadowMap">
+				<viewport name="SmallViewport1" />				
+				<texture name="moments" fromLibrary="Shadow Materials"/>
+			</pass>
+			
+			<pass class="default" name="DebugViewFromGodsCamera">
+				<scenes>
+					<scene name="MainScene" />
+					<scene name="testCamera" />
+					<scene name="shadow#getShadowMap-LightCam" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="SmallViewport2" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+			</pass> 
+			
+			<pass class="default" name="DebugViewFromLight">
+				<scenes>
+					<scene name="MainScene" />
+					<scene name="testCamera" />
+				</scenes>
+				<camera name="shadow#getShadowMap-LightCam" />
+				<viewport name="SmallViewport3" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+			</pass> 
+			
+		</pipeline>
+	</pipelines>
+	<interface >
+		<window label="DebugWindow" >
+			<var label="minVar" type="RENDERER" context="CURRENT" component="minVariance" def="step = 0.0001 min=0.0"/>
+			<var label="derivWeight" type="RENDERER" context="CURRENT" component="derivWeight" def="step = 0.01 min=0.0"/>
+		</window>
+	</interface>
+</project>

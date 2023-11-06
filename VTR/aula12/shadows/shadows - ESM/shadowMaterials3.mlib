@@ -1,0 +1,209 @@
+<?xml version="1.0" ?>
+<materialLib name="Shadow Materials">
+
+	<renderTargets>
+		<renderTarget name = "depth">
+			<CLEAR_VALUES x=1 y=1 z=0 w=0 />
+			<SIZE width=4096 height=4096 />
+			<colors>
+				<color name="exp" internalFormat="R32F" />
+			</colors>
+		</renderTarget>
+		
+		<renderTarget name = "blurredX">
+			<SIZE width=4096 height=4096 />
+			<colors>
+				<color name="blurredX" internalFormat="R32F" />
+			</colors>
+		</renderTarget>
+		
+		<renderTarget name = "blurredXY">
+			<SIZE width=4096 height=4096 />
+			<colors>
+				<color name="blurredXY" internalFormat="R32F" />
+			</colors>
+		</renderTarget>
+
+	<renderTarget name = "sobel">
+			<SIZE width=4096 height=4096 />
+			<colors>
+				<color name="sobel" internalFormat="RG32F" />
+			</colors>
+		</renderTarget>
+
+		<renderTarget name="simple">
+			<SIZE width=4096 height=4096 />
+			<CLEAR_VALUES r="0.0" g = "0.0" b = "0.0" a = "0.0"/>
+			<colors>
+				<color name="offscreenrender" internalFormat="RGBA" />
+			</colors>
+		</renderTarget>
+
+	</renderTargets>
+	
+	<shaders>
+		<shader name="perpixel-color-shadow" 
+							ps="shaders/perpixel-color-shadow.frag" 
+							vs="shaders/perpixel-color-shadow.vert" />
+		
+		<shader name="depthOnly" 
+							ps="shaders/depthOnly.frag" 
+							vs="shaders/depthOnly.vert" />
+							
+		<shader name="blurX" 
+							ps="shaders/gaussBlurX.frag" 
+							vs="shaders/gaussBlur.vert" />
+
+		<shader name="blurY" 
+							ps="shaders/gaussBlurY.frag" 
+							vs="shaders/gaussBlur.vert" />
+
+		<shader name="sobelM" 
+							ps="shaders/sobel.frag" 
+							vs="shaders/gaussBlur.vert" />
+	</shaders>
+	
+	<states>
+		<state name="frontCull">
+			<CULL_TYPE value="FRONT" />
+		</state>
+	</states>
+
+	<materials>
+
+		<material  name="depthOnly" >
+			<shader name="depthOnly">
+				<values>
+					<valueof uniform="PVM"  type="RENDERER" context="CURRENT" 
+											component="PROJECTION_VIEW_MODEL" />									
+					<valueof uniform="VM"  	type="RENDERER" context="CURRENT" 
+													component="VIEW_MODEL" />
+					<valueof uniform="far"  type="CAMERA" context="CURRENT" 
+													component="FAR" />
+					<valueof uniform="near"  type="CAMERA" context="CURRENT" 
+													component="NEAR" />
+				</values>
+			</shader>
+			<!--state name="frontCull" /-->
+		</material>
+		
+		<material  name="blurX" >
+			<shader name="blurX">
+				<values>
+					<valueof uniform="PVM"  	type="RENDERER" context="CURRENT" 
+													component="PROJECTION_VIEW_MODEL" />
+					<valueof uniform="moments"	type="TEXTURE_BINDING" context="CURRENT" 
+													id=1 component="UNIT" />	
+				</values>
+			</shader>
+			<textures>
+				<texture UNIT="1" name="exp" >
+					<MIN_FILTER value="LINEAR" />
+					<MAG_FILTER value="LINEAR" />
+				</texture>	
+			</textures>
+		</material>
+
+		<material  name="blurY" >
+			<shader name="blurY">
+				<values>
+					<valueof uniform="PVM"  	type="RENDERER" context="CURRENT" 
+													component="PROJECTION_VIEW_MODEL" />
+					<valueof uniform="moments"	type="TEXTURE_BINDING" context="CURRENT" 
+													id=1 component="UNIT" />	
+				</values>
+			</shader>
+			<textures>
+				<texture UNIT="1" name="blurredX" >
+					<MIN_FILTER value="LINEAR" />
+					<MAG_FILTER value="LINEAR" />
+				</texture>	
+			</textures>
+		</material>
+
+		<material  name="sobelM" >
+			<shader name="sobelM">
+				<values>
+					<valueof uniform="PVM"  	type="RENDERER" context="CURRENT" 
+													component="PROJECTION_VIEW_MODEL" />
+					<valueof uniform="moments"	type="TEXTURE_BINDING" context="CURRENT" 
+													id=1 component="UNIT" />	
+
+					<valueof uniform="width"	type="TEXTURE" context="CURRENT" 
+													id=1 component="WIDTH" />	
+
+					<valueof uniform="height"	type="TEXTURE" context="CURRENT" 
+													id=1 component="HEIGHT" />	
+				</values>
+			</shader>
+			<textures>
+				<texture UNIT="1" name="exp" >
+					<MIN_FILTER value="LINEAR" />
+					<MAG_FILTER value="LINEAR" />
+				</texture>	
+			</textures>
+		</material>
+		<material name="shadowed">
+			<color>
+				<AMBIENT r="0.3" g="0.3" b="0.3" a="1.0" />
+				<DIFFUSE r="1.0" g="1.0" b="1.0" a="1.0" />
+				<SPECULAR r="0.0" g="0.0" b="0.0" a="1.0" />
+				<EMISSION r="0.0" g="0.0" b="0.0" a="1.0" />
+				<SHININESS value="0.0" />
+			</color>
+			
+			<shader name="perpixel-color-shadow">
+				<values>
+					<valueof uniform="PVM"          	type="RENDERER" context="CURRENT" 
+														component="PROJECTION_VIEW_MODEL" />
+														
+					<valueof uniform="V"          		type="RENDERER" context="CURRENT" 
+														component="VIEW" />
+														
+					<valueof uniform="M"          		type="RENDERER" context="CURRENT" 
+														component="MODEL" />
+														
+					<valueof uniform="NormalMatrix"   	type="RENDERER" context="CURRENT" 
+														component="NORMAL" />
+																			
+					<valueof uniform="lightDirection" 	type="LIGHT" 
+														context="Sun" 
+														component="DIRECTION" /> 
+														
+					<valueof uniform="diffuse" 			type="COLOR" context="CURRENT" 
+														component="DIFFUSE" />
+														
+ 					<valueof uniform="lightSpaceMat" 	type="CAMERA"  context="shadow#getShadowMap-LightCam" 
+														component="TS05_PVM_MATRIX" />
+														
+					<valueof uniform="blurredExp"	type="TEXTURE_BINDING" context="CURRENT" 
+														id=1 
+														component="UNIT" />	
+														
+					<valueof uniform="texCount"			type="RENDERER" context="CURRENT" 
+														component="TEXTURE_COUNT" />
+														
+					<valueof uniform="texUnit" 			type="TEXTURE_BINDING" context="CURRENT" 
+														component="UNIT" id="0" />		
+					<valueof uniform="lightPos"			type="CAMERA" 
+														context= "shadow#getShadowMap-LightCam" 
+														component = "POSITION" />
+					<valueof uniform="k"				type="RENDERER" context="CURRENT"
+														component="K" />
+					<valueof uniform="far"  			type="CAMERA" context="shadow#getShadowMap-LightCam" 
+														component="FAR" />
+					<valueof uniform="near"  			type="CAMERA" context="shadow#getShadowMap-LightCam" 
+														component="NEAR" />
+				</values>
+			</shader>
+			
+			<textures>
+				<texture UNIT="1" name="sobel" >
+					<MIN_FILTER value="LINEAR" />
+					<MAG_FILTER value="LINEAR" />
+				</texture>	
+			</textures>
+		</material>		
+		
+	</materials>
+</materialLib>
