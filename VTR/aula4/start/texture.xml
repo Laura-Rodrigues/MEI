@@ -1,0 +1,54 @@
+<project name="texturing" >
+
+    <assets>
+        <scenes>
+            <scene name="box" filename="models/cube2.obj" />
+        </scenes>
+
+        <viewports>
+            <viewport name="mainV" >
+                <CLEAR_COLOR x="1.0" y="1.0" z="1.0" /> 
+            </viewport>
+        </viewports>
+
+        <cameras>
+            <camera name="mainC" >
+                <viewport name="mainV" />
+                <POSITION x="0" y="0" z="5" />
+                <NEAR value="0.01"/>
+            </camera>
+        </cameras>
+
+        <lights>
+            <light name="sun" >
+                <DIRECTION x="-2" y="5" z = "-5" />
+            </light>
+
+        </lights>
+
+        <materialLibs>
+            <materialLib filename = "texture.mlib" />
+        </materialLibs>
+
+    </assets>
+
+    <pipelines>
+        <pipeline name="texturing" >
+            <pass class="default" name="p1" >
+                <scenes>
+                    <scene name="box" />
+                </scenes>
+                <camera name="mainC" />
+                <lights>
+                    <light name="sun" />
+                </lights>
+                <materialMaps>
+                    <map fromMaterial="*"
+                            toLibrary="texturing" toMaterial="textured" />
+                </materialMaps>
+
+            </pass>
+
+        </pipeline>
+    </pipelines>
+</project>
