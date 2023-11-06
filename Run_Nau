@@ -1,0 +1,7 @@
+compile:
+	cmake CMakeLists.txt -G 'Unix Makefiles'
+	make
+
+run:
+	cd bin
+	./composerImGui /home/lau/Desktop/Universidade/VTR/programming\ in\ nau/simple4.xml 
