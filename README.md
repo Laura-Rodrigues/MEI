@@ -27,3 +27,5 @@
 
 Em Falta:
 - Fork projeto de ASMa (privado)
+
+**Nota:** Estão em falta alguns datasets por serem demasiado pesados
