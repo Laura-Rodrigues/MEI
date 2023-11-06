@@ -1,0 +1,1058 @@
+#NAU(FRAME,START)
+glDisable(GL_BLEND)
+glEnable(GL_DEPTH_TEST)
+glEnable(GL_CULL_FACE)
+glDepthMask(0000000000000B01)
+glDisable(GL_SAMPLE_SHADING | GL_SAMPLE_SHADING_ARB)
+glMinSampleShading(1)
+glBlendColor(0, 0, 0, 0)
+glColorMask(0000000000000001, 0000000000000001, 0000000000000001, 000000F700000001)
+glDepthFunc(GL_LESS)
+glCullFace(GL_BACK)
+glBlendFunc(GL_LAYOUT_LINEAR_INTEL | GL_LINES | GL_NOP_COMMAND_NV | GL_ONE | GL_RESTART_SUN | GL_SUBGROUP_FEATURE_BASIC_BIT_KHR, GL_CLOSE_PATH_NV | GL_LAYOUT_DEFAULT_INTEL | GL_NO_ERROR | GL_NONE | GL_POINTS | GL_TERMINATE_SEQUENCE_COMMAND_NV | GL_ZERO)
+glBlendFunc(GL_LAYOUT_LINEAR_INTEL | GL_LINES | GL_NOP_COMMAND_NV | GL_ONE | GL_RESTART_SUN | GL_SUBGROUP_FEATURE_BASIC_BIT_KHR, GL_CLOSE_PATH_NV | GL_LAYOUT_DEFAULT_INTEL | GL_NO_ERROR | GL_NONE | GL_POINTS | GL_TERMINATE_SEQUENCE_COMMAND_NV | GL_ZERO)
+glBlendEquation(GL_FUNC_ADD | GL_FUNC_ADD_EXT)
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {1.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {256 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {256 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {256 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000026A35F67A01, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(123, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(124, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(125, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(126, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(127, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(128, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(129, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(256, 256, 256)
+glQueryCounter(130, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(131, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(132, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A35F67B00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {2.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {128 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {128 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {128 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 000000F700000001, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(133, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(134, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(135, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(136, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(137, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(138, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(139, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(128, 128, 128)
+glQueryCounter(140, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(141, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(142, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A00008400, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {3.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {64 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {64 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {64 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000026A13218C01, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(143, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(144, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(145, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(146, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(147, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(148, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(149, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(64, 64, 64)
+glQueryCounter(150, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(151, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(152, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A13218C00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {4.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {32 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {32 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {32 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000000000000001, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(153, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(154, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(155, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(156, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(157, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(158, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(159, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(32, 32, 32)
+glQueryCounter(160, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(161, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(162, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A13218C00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {5.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {16 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {16 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {16 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000026A00008801, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(163, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(164, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(165, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(166, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(167, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(168, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(169, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(16, 16, 16)
+glQueryCounter(170, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(171, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(172, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000000000000000, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {6.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {8 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {8 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {8 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000000000000001, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(173, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(174, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(175, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(176, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(177, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(178, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(179, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(8, 8, 8)
+glQueryCounter(180, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(181, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(182, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A13218C00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {7.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {4 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {4 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {4 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000000000000001, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(183, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(184, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(185, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(186, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(187, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(188, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(189, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(4, 4, 4)
+glQueryCounter(190, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(191, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(192, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A13218C00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {8.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {2 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {2 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {2 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000026A13218C01, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(193, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(194, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(195, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(196, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(197, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(198, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(199, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(2, 2, 2)
+glQueryCounter(200, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(201, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(202, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A13218C00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {9.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {1 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {1 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {1 }
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(0, 36)
+glClearTexImage(40, 1, GL_RGBA, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindImageTexture(1, 40, 1, 0000026A00000001, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(25)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(203, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A35D609B0)
+glQueryCounter(204, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(205, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(206, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(207, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(208, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(209, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(1, 1, 1)
+glQueryCounter(210, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(211, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(212, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE0 | GL_TEXTURE0_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(0, 0)
+glBindImageTexture(1, 0, 1, 0000026A13218C00, 0, GL_WRITE_ONLY | GL_WRITE_ONLY_ARB, GL_RGBA8 | GL_RGBA8_EXT)
+#NAU(PASS END voxels#mipmap)
+#NAU(PASS START voxels#mipmap)
+#LUA: call script test
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridLevels'
+LUA: number: 0
+LUA: table {}
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#mipmap'
+LUA: string: 'GridCurrentLevel'
+LUA: number: 0
+LUA: table {0 }
+#NAU(PASS END voxels#mipmap)
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+#LUA setDim
+LUA: Calling getAttr
+LUA: total in stack 5
+LUA: string: 'RENDERER'
+LUA: string: 'CURRENT'
+LUA: string: 'Level'
+LUA: number: 0
+LUA: table {}
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#computeCubePos'
+LUA: string: 'DIM_X'
+LUA: number: 0
+LUA: table {128.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#computeCubePos'
+LUA: string: 'DIM_Y'
+LUA: number: 0
+LUA: table {128.0 }
+LUA: Calling setAttr
+LUA: total in stack 5
+LUA: string: 'PASS'
+LUA: string: 'voxels#computeCubePos'
+LUA: string: 'DIM_Z'
+LUA: number: 0
+LUA: table {128.0 }
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+#NAU(PASS START voxels#computeCubePos)
+glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, 4)
+glBindBufferBase(GL_ATOMIC_COUNTER_BUFFER, 2, 3)
+glActiveTexture(GL_TEXTURE1 | GL_TEXTURE1_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(1, 37)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(23)
+glGenQueries(2, 000000F745DBEDF8)
+glQueryCounter(213, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(1, 1, 0000026A35D60B30)
+glUniform1iv(2, 1, 0000026A35D609A0)
+glQueryCounter(214, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEBF8)
+glQueryCounter(215, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(216, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(217, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glClearBufferData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, GL_R8, GL_RED | GL_RED_NV, GL_UNSIGNED_BYTE, 0000000000000000)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glQueryCounter(218, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE28)
+glQueryCounter(219, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glDispatchCompute(128, 128, 128)
+glQueryCounter(220, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(221, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(222, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE1 | GL_TEXTURE1_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(1, 0)
+glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, 0)
+glBindBufferBase(GL_ATOMIC_COUNTER_BUFFER, 2, 0)
+#NAU(PASS END voxels#computeCubePos)
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+#NAU(PASS START voxels#showVoxels)
+glEnable(GL_SCISSOR_TEST)
+glClearColor(1, 1, 1, 1)
+glViewportIndexedf(0, 0, 0, 1024, 1024)
+glScissorIndexed(0, 0, 0, 1024, 1024)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(223, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(224, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glEnable(GL_DEPTH_TEST)
+glDepthMask(0000026A13218C01)
+glDepthFunc(GL_LESS)
+glDisable(GL_STENCIL_TEST)
+glStencilFunc(GL_ALWAYS, 0, 255)
+glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP)
+glClearDepth(1)
+glClearStencil(0)
+glClear(GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT | GL_COLOR_BUFFER_BIT)
+glDisable(GL_SCISSOR_TEST)
+glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, 4)
+glActiveTexture(GL_TEXTURE1 | GL_TEXTURE1_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 40)
+glBindSampler(1, 38)
+glDisable(GL_RASTERIZER_DISCARD | GL_RASTERIZER_DISCARD_EXT | GL_RASTERIZER_DISCARD_NV)
+glUseProgram(20)
+glGenQueries(2, 000000F745DBEAF8)
+glQueryCounter(225, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glUniform1iv(0, 1, 0000026A1522D260)
+glUniformMatrix4fv(1, 1, 0000026A00000000, 0000026A14FA5F70)
+glUniform1iv(2, 1, 0000026A18C085E0)
+glUniform1iv(3, 1, 0000026A35D60B90)
+glQueryCounter(226, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glGenQueries(2, 000000F745DBE8F8)
+glQueryCounter(227, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(228, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(26)
+glGenQueries(2, 000000F745DBEA78)
+glQueryCounter(229, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glBufferSubData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0, 4, 000000F745DBEB20)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 3)
+glDrawElementsIndirect(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV | GL_LINE_TO_NV | GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR | GL_TRIANGLES, GL_UNSIGNED_INT, 0000000000000000)
+glQueryCounter(230, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(0)
+glBindVertexArray(27)
+glGenQueries(2, 000000F745DBEA78)
+glQueryCounter(231, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glBufferSubData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0, 4, 000000F745DBEB20)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 3)
+glDrawElementsIndirect(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV | GL_LINE_TO_NV | GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR | GL_TRIANGLES, GL_UNSIGNED_INT, 0000000000000000)
+glQueryCounter(232, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(0)
+glBindVertexArray(28)
+glGenQueries(2, 000000F745DBEA78)
+glQueryCounter(233, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glBufferSubData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0, 4, 000000F745DBEB20)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 3)
+glDrawElementsIndirect(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV | GL_LINE_TO_NV | GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR | GL_TRIANGLES, GL_UNSIGNED_INT, 0000000000000000)
+glQueryCounter(234, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(0)
+glBindVertexArray(29)
+glGenQueries(2, 000000F745DBEA78)
+glQueryCounter(235, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glBufferSubData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0, 4, 000000F745DBEB20)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 3)
+glDrawElementsIndirect(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV | GL_LINE_TO_NV | GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR | GL_TRIANGLES, GL_UNSIGNED_INT, 0000000000000000)
+glQueryCounter(236, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(0)
+glBindVertexArray(30)
+glGenQueries(2, 000000F745DBEA78)
+glQueryCounter(237, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glBufferSubData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0, 4, 000000F745DBEB20)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 3)
+glDrawElementsIndirect(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV | GL_LINE_TO_NV | GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR | GL_TRIANGLES, GL_UNSIGNED_INT, 0000000000000000)
+glQueryCounter(238, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(0)
+glBindVertexArray(31)
+glGenQueries(2, 000000F745DBEA78)
+glQueryCounter(239, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 3)
+glBufferSubData(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0, 4, 000000F745DBEB20)
+glBindBuffer(GL_ARRAY_BUFFER | GL_ARRAY_BUFFER_ARB, 0)
+glBindBuffer(GL_DRAW_INDIRECT_BUFFER, 3)
+glDrawElementsIndirect(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV | GL_LINE_TO_NV | GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR | GL_TRIANGLES, GL_UNSIGNED_INT, 0000000000000000)
+glQueryCounter(240, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glBindVertexArray(0)
+glUseProgram(0)
+glActiveTexture(GL_TEXTURE1 | GL_TEXTURE1_ARB)
+glBindTexture(GL_TEXTURE_3D | GL_TEXTURE_3D_EXT, 0)
+glBindSampler(1, 0)
+glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, 0)
+glGenQueries(2, 000000F745DBEE58)
+glQueryCounter(241, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+glQueryCounter(242, GL_CURRENT_TIME_NV | GL_TIMESTAMP)
+#NAU(PASS END voxels#showVoxels)
+glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+glGetQueryObjectui64v(7, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(8, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF72D0)
+glGetQueryObjectui64v(17, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(18, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF72D8)
+glGetQueryObjectui64v(27, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(28, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF72E0)
+glGetQueryObjectui64v(37, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(38, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF72E8)
+glGetQueryObjectui64v(47, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(48, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF72F0)
+glGetQueryObjectui64v(57, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(58, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF72F8)
+glGetQueryObjectui64v(67, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(68, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF7300)
+glGetQueryObjectui64v(77, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(78, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF7308)
+glGetQueryObjectui64v(87, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(88, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF7310)
+glGetQueryObjectui64v(9, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(10, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66A0)
+glGetQueryObjectui64v(19, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(20, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66A8)
+glGetQueryObjectui64v(29, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(30, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66B0)
+glGetQueryObjectui64v(39, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(40, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66B8)
+glGetQueryObjectui64v(49, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(50, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66C0)
+glGetQueryObjectui64v(59, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(60, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66C8)
+glGetQueryObjectui64v(69, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(70, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66D0)
+glGetQueryObjectui64v(79, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(80, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66D8)
+glGetQueryObjectui64v(89, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(90, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF66E0)
+glGetQueryObjectui64v(11, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(12, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6DD0)
+glGetQueryObjectui64v(21, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(22, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6DD8)
+glGetQueryObjectui64v(31, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(32, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6DE0)
+glGetQueryObjectui64v(41, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(42, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6DE8)
+glGetQueryObjectui64v(51, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(52, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6DF0)
+glGetQueryObjectui64v(61, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(62, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6DF8)
+glGetQueryObjectui64v(71, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(72, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6E00)
+glGetQueryObjectui64v(81, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(82, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6E08)
+glGetQueryObjectui64v(91, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(92, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6E10)
+glGetQueryObjectui64v(97, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(98, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E74030)
+glGetQueryObjectui64v(99, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(100, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E73FE0)
+glGetQueryObjectui64v(101, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(102, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E74040)
+glGetQueryObjectui64v(103, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(104, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E73EE0)
+glGetQueryObjectui64v(121, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(122, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E73DE0)
+glGetQueryObjectui64v(3, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(4, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6650)
+glGetQueryObjectui64v(13, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(14, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6658)
+glGetQueryObjectui64v(23, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(24, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6660)
+glGetQueryObjectui64v(33, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(34, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6668)
+glGetQueryObjectui64v(43, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(44, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6670)
+glGetQueryObjectui64v(53, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(54, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6678)
+glGetQueryObjectui64v(63, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(64, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6680)
+glGetQueryObjectui64v(73, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(74, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6688)
+glGetQueryObjectui64v(83, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(84, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6690)
+glGetQueryObjectui64v(5, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(6, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BA0)
+glGetQueryObjectui64v(15, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(16, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BA8)
+glGetQueryObjectui64v(25, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(26, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BB0)
+glGetQueryObjectui64v(35, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(36, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BB8)
+glGetQueryObjectui64v(45, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(46, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BC0)
+glGetQueryObjectui64v(55, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(56, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BC8)
+glGetQueryObjectui64v(65, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(66, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BD0)
+glGetQueryObjectui64v(75, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(76, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BD8)
+glGetQueryObjectui64v(85, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(86, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35DF6BE0)
+glGetQueryObjectui64v(93, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(94, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E74020)
+glGetQueryObjectui64v(95, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(96, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E73EA0)
+glGetQueryObjectui64v(105, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(106, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E73E40)
+glGetQueryObjectui64v(107, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(108, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35E73F00)
+glGetQueryObjectui64v(109, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(110, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35D88170)
+glGetQueryObjectui64v(111, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(112, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35D88178)
+glGetQueryObjectui64v(113, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(114, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35D88180)
+glGetQueryObjectui64v(115, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(116, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35D88188)
+glGetQueryObjectui64v(117, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(118, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35D88190)
+glGetQueryObjectui64v(119, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF888)
+glGetQueryObjectui64v(120, GL_PIXEL_COUNT_NV | GL_QUERY_RESULT | GL_QUERY_RESULT_ARB, 000000F745DBF880)
+glDeleteQueries(2, 0000026A35D88198)
